@@ -1,0 +1,16 @@
+{
+    "httpMethod": "GET",
+    "path": "/academicapi/worldclock",
+    "queryStringParameters": {
+        "timezone": "Europe/London"
+    },
+    "headers": {
+        "accept": "*/*",
+        "timezone": "Europe/London",
+        "user-agent": "curl/7.64.1",
+        "x-forwarded-port": "443",
+        "x-forwarded-proto": "https"
+    },
+    "body": "",
+    "isBase64Encoded": false
+}
