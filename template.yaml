@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >-
+  A simple backend for a RESTful API endpoint.
+Resources:
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: beta
+  WorldClockAPIEndpoint:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: ./worldclock
+      Description: >-
+        A RESTful API endpoint to display world clock.
+      MemorySize: 512
+      Timeout: 10
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /academicapi/worldclock
+            Method: ANY
+            RestApiId: !Ref ApiGatewayApi
